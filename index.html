@@ -66,7 +66,8 @@
   <header class="sticky top-0 z-50 bg-white/85 backdrop-blur border-b border-black/5">
     <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
       <a href="#top" class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gray-200 flex items-center justify-center shadow-softer">
+        <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-softer border border-black/5 overflow-hidden">
+          <img src="assets/logo.png" alt="Logo" class="w-full h-full object-contain" />
         </div>
         <div class="leading-tight">
           <div class="font-extrabold text-ink tracking-tight">Ferramentas para acs</div>
@@ -223,9 +224,6 @@
             class="w-full h-[260px] md:h-[300px] object-cover rounded-2xl border border-black/5"
             onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%22600%22><rect width=%221200%22 height=%22600%22 fill=%22%23E6F7F7%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%2200B3B3%22 font-size=%2238%22 font-family=%22Arial%22>Coloque aqui a foto do KIT</text></svg>';"
           />
-          <p class="mt-3 text-xs text-gray-500 text-center">
-            Dica: coloque a imagem em <code class="bg-white px-2 py-0.5 rounded border">assets/kit-operacional-acs.jpg</code>
-          </p>
         </div>
 
         <div class="p-7 md:p-8">
@@ -262,7 +260,7 @@
               target="_blank" rel="noopener noreferrer"
               class="inline-flex w-full justify-center items-center gap-2 bg-kitblue hover:bg-kitblue-hover text-white font-semibold py-3 rounded-2xl transition shadow-softer">
               <i data-lucide="external-link" class="w-5 h-5"></i>
-              Ver Kit Operacional
+              Ver página do Kit Operacional
             </a>
             <a href="#duvidas"
                class="inline-flex w-full justify-center items-center gap-2 bg-white hover:bg-white/70 text-ink font-semibold py-3 rounded-2xl transition shadow-softer border border-black/5">
@@ -284,9 +282,6 @@
             class="w-full h-[260px] md:h-[300px] object-cover rounded-2xl border border-black/5"
             onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%22600%22><rect width=%221200%22 height=%22600%22 fill=%22%23EEF2FF%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%221E3A8A%22 font-size=%2238%22 font-family=%22Arial%22>Coloque aqui a foto do APS 360</text></svg>';"
           />
-          <p class="mt-3 text-xs text-gray-500 text-center">
-            Dica: coloque a imagem em <code class="bg-white px-2 py-0.5 rounded border">assets/manual-aps360.jpg</code>
-          </p>
         </div>
 
         <div class="p-7 md:p-8">
@@ -323,7 +318,7 @@
               target="_blank" rel="noopener noreferrer"
               class="inline-flex w-full justify-center items-center gap-2 bg-action hover:bg-action-hover text-white font-semibold py-3 rounded-2xl transition shadow-softer">
               <i data-lucide="external-link" class="w-5 h-5"></i>
-              Ver Manual APS 360
+              Ver página do Manual APS 360
             </a>
             <a href="#duvidas"
                class="inline-flex w-full justify-center items-center gap-2 bg-white hover:bg-white/70 text-ink font-semibold py-3 rounded-2xl transition shadow-softer border border-black/5">
@@ -446,4 +441,5 @@
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
+
 </html>
