@@ -122,8 +122,10 @@
           </div>
 
           <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- QUIZ: KIT -->
             <a
-              href="https://leothaylor.github.io/kit-operacional-acs/?utm_source=instagram&utm_medium=bio&utm_campaign=kit_operacional_acs&utm_content=link_in_bio"
+              data-dest="kit"
+              href="https://leothaylor.github.io/kit-operacional-acs/"
               target="_blank" rel="noopener noreferrer"
               class="group bg-brand/5 hover:bg-brand/10 border border-black/5 rounded-2xl p-5 transition shadow-softer"
             >
@@ -146,8 +148,10 @@
               </div>
             </a>
 
+            <!-- QUIZ: APS360 -->
             <a
-              href="https://leothaylor.github.io/manual-basico-APS360/?utm_source=instagram&utm_medium=bio&utm_campaign=manual_basico_aps360&utm_content=link_in_bio"
+              data-dest="aps360"
+              href="https://leothaylor.github.io/manual-basico-APS360/"
               target="_blank" rel="noopener noreferrer"
               class="group bg-action/5 hover:bg-action/10 border border-black/5 rounded-2xl p-5 transition shadow-softer"
             >
@@ -241,7 +245,8 @@
 
               <div class="mt-6 flex flex-col sm:flex-row gap-3">
                 <a
-                  href="https://leothaylor.github.io/kit-operacional-acs/?utm_source=instagram&utm_medium=bio&utm_campaign=kit_operacional_acs&utm_content=link_in_bio"
+                  data-dest="kit"
+                  href="https://leothaylor.github.io/kit-operacional-acs/"
                   target="_blank" rel="noopener noreferrer"
                   class="inline-flex w-full justify-center items-center gap-2 bg-kitblue hover:bg-kitblue-hover text-white font-semibold py-3 rounded-2xl transition shadow-softer">
                   <i data-lucide="external-link" class="w-5 h-5"></i>
@@ -298,7 +303,8 @@
 
               <div class="mt-6 flex flex-col sm:flex-row gap-3">
                 <a
-                  href="https://leothaylor.github.io/manual-basico-APS360/?utm_source=instagram&utm_medium=bio&utm_campaign=manual_basico_aps360&utm_content=link_in_bio"
+                  data-dest="aps360"
+                  href="https://leothaylor.github.io/manual-basico-APS360/"
                   target="_blank" rel="noopener noreferrer"
                   class="inline-flex w-full justify-center items-center gap-2 bg-action hover:bg-action-hover text-white font-semibold py-3 rounded-2xl transition shadow-softer">
                   <i data-lucide="external-link" class="w-5 h-5"></i>
@@ -528,6 +534,39 @@
       </div>
     </div>
   </footer>
+
+  <!-- ✅ SCRIPT: repassa UTM da vitrine para os botões (mantém campaign específica por destino) -->
+  <script>
+    (function () {
+      const incoming = new URLSearchParams(window.location.search);
+
+      // remove ruído (não serve pra rastreio no GA/Hotmart e só suja URL)
+      incoming.delete("fbclid");
+
+      // se não veio UTM nenhuma, ainda assim não quebra nada
+      const utm_source  = incoming.get("utm_source")  || "instagram";
+      const utm_medium  = incoming.get("utm_medium")  || "bio";
+      const utm_content = incoming.get("utm_content") || "portal_acs";
+
+      // campanha fixa por destino (pra você separar kit vs aps360 SEM confusão)
+      const campaigns = {
+        kit: "kit_operacional_acs",
+        aps360: "manual_basico_aps360"
+      };
+
+      document.querySelectorAll("a[data-dest]").forEach(a => {
+        const dest = a.getAttribute("data-dest"); // kit | aps360
+        const url = new URL(a.href);
+
+        url.searchParams.set("utm_source", utm_source);
+        url.searchParams.set("utm_medium", utm_medium);
+        url.searchParams.set("utm_campaign", campaigns[dest] || "portal_acs");
+        url.searchParams.set("utm_content", `${utm_content}__${dest}`);
+
+        a.href = url.toString();
+      });
+    })();
+  </script>
 
   <script>
     lucide.createIcons();
