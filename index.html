@@ -62,237 +62,204 @@
 
 <body class="bg-brand-light text-gray-800 min-h-screen">
 
-  <!-- HEADER -->
+  <!-- HEADER (limpo) -->
   <header class="sticky top-0 z-50 bg-white/85 backdrop-blur border-b border-black/5">
-    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-      <a href="#top" class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-softer border border-black/5 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between gap-4">
+      <a href="#top" class="flex items-center gap-3 min-w-0">
+        <div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-softer border border-black/5 overflow-hidden shrink-0">
           <img src="assets/logo.png" alt="Logo" class="w-full h-full object-contain" />
         </div>
-        <div class="leading-tight">
-          <div class="font-extrabold text-ink tracking-tight">Ferramentas para acs</div>
-          <div class="text-xs text-gray-500 -mt-0.5">Escolha seu material</div>
+        <div class="leading-tight min-w-0">
+          <div class="font-extrabold text-ink tracking-tight truncate">Ferramentas para acs</div>
+          <div class="text-xs text-gray-500 -mt-0.5 truncate">Escolha seu material</div>
         </div>
       </a>
 
-      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
-        <a href="#selecionar" class="text-gray-700 hover:text-ink transition">Seleção</a>
-        <a href="#duvidas" class="text-gray-700 hover:text-ink transition">Dúvidas</a>
-        <a href="#contato" class="text-gray-700 hover:text-ink transition">Contato</a>
-      </nav>
-
       <a href="#selecionar"
-         class="inline-flex items-center gap-2 bg-action hover:bg-action-hover text-white font-semibold px-4 py-2.5 rounded-xl shadow-softer transition">
+         class="inline-flex items-center gap-2 bg-action hover:bg-action-hover text-white font-semibold px-4 py-2.5 rounded-xl shadow-softer transition whitespace-nowrap">
         <i data-lucide="mouse-pointer-click" class="w-4 h-4"></i>
         Escolher agora
       </a>
     </div>
   </header>
 
-  <!-- TOP / HERO ÚNICO + SELEÇÃO -->
+  <!-- TOP -->
   <section id="top" class="relative overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-b from-white to-brand-light"></div>
     <div class="absolute -top-24 -right-24 w-[420px] h-[420px] rounded-full bg-brand/20 blur-3xl"></div>
     <div class="absolute -bottom-28 -left-28 w-[520px] h-[520px] rounded-full bg-action/10 blur-3xl"></div>
 
-    <div class="relative max-w-6xl mx-auto px-4 pt-10 md:pt-12 pb-10">
+    <div class="relative max-w-6xl mx-auto px-4 pt-8 md:pt-10 pb-10">
+      <!-- TITULO SECO (sem hero/card) -->
+      <div class="text-center">
+        <div class="inline-flex items-center gap-2 bg-white px-3 py-1.5 rounded-full shadow-softer border border-black/5 text-sm">
+          <span class="w-2 h-2 rounded-full bg-brand"></span>
+          <span class="text-gray-700"><strong>Decisão rápida</strong> (1 escolha)</span>
+        </div>
 
-      <!-- HERO SIMPLE -->
-      <div class="bg-white rounded-[28px] shadow-soft border border-black/5 overflow-hidden">
-        <div class="p-7 md:p-10">
-          <div class="flex items-start justify-between gap-6">
-            <div class="max-w-3xl">
-              <div class="inline-flex items-center gap-2 bg-white px-3 py-1.5 rounded-full shadow-softer border border-black/5 text-sm">
-                <span class="w-2 h-2 rounded-full bg-brand"></span>
-                <span class="text-gray-700"><strong>Decisão rápida</strong> (1 escolha)</span>
-              </div>
+        <h1 class="mt-4 text-3xl md:text-4xl font-extrabold tracking-tight text-ink leading-tight">
+          Hoje você precisa evitar o quê?
+        </h1>
 
-              <h1 class="mt-4 text-3xl md:text-4xl font-extrabold tracking-tight text-ink leading-tight">
-                Hoje você precisa evitar o quê?
-              </h1>
+        <p class="mt-2 text-gray-700">
+          Duas ferramentas. Uma escolha. Sem enrolação.
+        </p>
 
-              <p class="mt-2 text-gray-700">
-                Escolha o material pelo seu objetivo de hoje e vá direto pra página certa.
-              </p>
+        <div class="mt-5 flex justify-center gap-3">
+          <a href="#selecionar"
+             class="inline-flex items-center gap-2 bg-action hover:bg-action-hover text-white font-semibold px-5 py-2.5 rounded-2xl shadow-softer transition">
+            <i data-lucide="layout-grid" class="w-5 h-5"></i>
+            Ver as 2 opções
+          </a>
 
-              <p class="mt-2 text-sm text-gray-600">
-                <strong>Sem promessa bonita:</strong> é ferramenta prática pro dia a dia (território / regra).
-              </p>
-
-              <div class="mt-6 flex flex-col sm:flex-row gap-3">
-                <a href="#selecionar"
-                   class="inline-flex w-full justify-center items-center gap-2 bg-action hover:bg-action-hover text-white font-semibold px-6 py-3 rounded-2xl shadow-soft transition">
-                  <i data-lucide="layout-grid" class="w-5 h-5"></i>
-                  Ver as 2 opções
-                </a>
-
-                <a href="#duvidas"
-                   class="inline-flex w-full justify-center items-center gap-2 bg-white hover:bg-white/70 text-ink font-semibold px-6 py-3 rounded-2xl shadow-softer border border-black/5 transition">
-                  <i data-lucide="help-circle" class="w-5 h-5"></i>
-                  Entender rapidinho (FAQ)
-                </a>
-              </div>
-            </div>
-
-            <div class="hidden md:flex w-12 h-12 rounded-2xl bg-brand/15 items-center justify-center">
-              <i data-lucide="sparkles" class="w-6 h-6 text-brand"></i>
-            </div>
-          </div>
+          <a href="#duvidas"
+             class="inline-flex items-center gap-2 bg-white hover:bg-white/70 text-ink font-semibold px-5 py-2.5 rounded-2xl shadow-softer border border-black/5 transition">
+            <i data-lucide="help-circle" class="w-5 h-5"></i>
+            Tô em dúvida
+          </a>
         </div>
       </div>
 
-      <!-- SELEÇÃO (A) - JÁ VEM NA SEQUÊNCIA -->
-      <section id="selecionar" class="max-w-6xl mx-auto px-0 pt-10">
-        <div class="text-center mt-0 mb-8">
-          <h2 class="text-3xl md:text-4xl font-extrabold text-ink tracking-tight">
+      <!-- SELEÇÃO -->
+      <section id="selecionar" class="pt-8 md:pt-10">
+        <div class="text-center mb-5 md:mb-7">
+          <h2 class="text-2xl md:text-3xl font-extrabold text-ink tracking-tight">
             Selecione o seu material
           </h2>
-          <p class="mt-3 text-gray-700 max-w-2xl mx-auto">
-            É só escolher pelo seu “evitar” de hoje. Duas opções. Sem fricção.
+          <p class="mt-2 text-gray-700 max-w-2xl mx-auto">
+            Escolha pelo seu “evitar” de hoje e vá direto.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <!-- CARD 1 -->
-          <article class="bg-white rounded-[28px] shadow-soft border border-black/5 overflow-hidden hover:-translate-y-1 transition will-change-transform">
-            <!-- FOTO DO PRODUTO -->
-            <div class="bg-gray-50 border-b border-black/5 p-4">
-              <img
-                src="assets/kit-operacional-acs.jpg"
-                alt="Foto do Kit Operacional ACS"
-                class="w-full h-[260px] md:h-[300px] object-cover rounded-2xl border border-black/5"
-                onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%22600%22><rect width=%221200%22 height=%22600%22 fill=%22%23E6F7F7%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%2200B3B3%22 font-size=%2238%22 font-family=%22Arial%22>Coloque aqui a foto do KIT</text></svg>';"
-              />
-            </div>
+        <!-- MOBILE: rolagem lateral | DESKTOP: 2 colunas -->
+        <div class="lg:grid lg:grid-cols-2 lg:gap-8">
+          <div class="flex gap-4 overflow-x-auto pb-2 -mx-4 px-4 lg:mx-0 lg:px-0 lg:overflow-visible lg:block lg:pb-0 lg:contents"
+               aria-label="Seleção de materiais (arraste para o lado no celular)">
 
-            <div class="p-7 md:p-8">
-              <div class="flex items-start justify-between gap-4">
-                <div>
-                  <h3 class="text-2xl font-extrabold text-ink">Kit Operacional ACS</h3>
-                  <p class="mt-2 text-gray-700">
-                    Pra quem quer <strong>não esquecer nada na visita</strong> e reduzir retrabalho com um sistema físico simples.
-                  </p>
-                  <p class="mt-2 text-sm text-gray-600">
-                    VD, retornos, metas e controle no papel — pra você executar no território.
-                  </p>
-                </div>
-                <div class="w-12 h-12 rounded-2xl bg-brand/15 flex items-center justify-center shrink-0">
-                  <i data-lucide="clipboard-check" class="w-6 h-6 text-brand"></i>
-                </div>
+            <!-- CARD 1 -->
+            <article class="min-w-[86%] sm:min-w-[70%] lg:min-w-0 bg-white rounded-[24px] shadow-soft border border-black/5 overflow-hidden">
+              <div class="bg-gray-50 border-b border-black/5 p-3">
+                <img
+                  src="assets/kit-operacional-acs.jpg"
+                  alt="Foto do Kit Operacional ACS"
+                  class="w-full h-[210px] md:h-[240px] object-cover rounded-2xl border border-black/5"
+                  onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%22600%22><rect width=%221200%22 height=%22600%22 fill=%22%23E6F7F7%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%2200B3B3%22 font-size=%2238%22 font-family=%22Arial%22>Coloque aqui a foto do KIT</text></svg>';"
+                />
               </div>
 
-              <ul class="mt-5 space-y-2 text-sm text-gray-700">
-                <li class="flex gap-2">
-                  <i data-lucide="check" class="w-4 h-4 text-brand mt-0.5"></i>
-                  Pronto pra imprimir e levar pro campo
-                </li>
-                <li class="flex gap-2">
-                  <i data-lucide="check" class="w-4 h-4 text-brand mt-0.5"></i>
-                  Organiza VD, retornos e metas numa folha
-                </li>
-                <li class="flex gap-2">
-                  <i data-lucide="check" class="w-4 h-4 text-brand mt-0.5"></i>
-                  Mais segurança técnica sem depender de internet
-                </li>
-              </ul>
-
-              <div class="mt-6 flex flex-col sm:flex-row gap-3">
-                <a
-                  data-dest="kit"
-                  href="https://leothaylor.github.io/kit-operacional-acs/"
-                  target="_blank" rel="noopener noreferrer"
-                  class="inline-flex w-full justify-center items-center gap-2 bg-kitblue hover:bg-kitblue-hover text-white font-semibold py-3 rounded-2xl transition shadow-softer">
-                  <i data-lucide="external-link" class="w-5 h-5"></i>
-                  Ir direto pro Kit Operacional
-                </a>
-                <a href="#duvidas"
-                   class="inline-flex w-full justify-center items-center gap-2 bg-white hover:bg-white/70 text-ink font-semibold py-3 rounded-2xl transition shadow-softer border border-black/5">
-                  <i data-lucide="help-circle" class="w-5 h-5"></i>
-                  Ver FAQ
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- CARD 2 -->
-          <article class="bg-white rounded-[28px] shadow-soft border border-black/5 overflow-hidden hover:-translate-y-1 transition will-change-transform">
-            <!-- FOTO DO PRODUTO -->
-            <div class="bg-gray-50 border-b border-black/5 p-4">
-              <img
-                src="assets/manual-aps360.jpg"
-                alt="Foto do Manual Básico APS 360"
-                class="w-full h-[260px] md:h-[300px] object-cover rounded-2xl border border-black/5"
-                onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%22600%22><rect width=%221200%22 height=%22600%22 fill=%22%23EEF2FF%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%221E3A8A%22 font-size=%2238%22 font-family=%22Arial%22>Coloque aqui a foto do APS 360</text></svg>';"
-              />
-            </div>
-
-            <div class="p-7 md:p-8">
-              <div class="flex items-start justify-between gap-4">
-                <div>
-                  <h3 class="text-2xl font-extrabold text-ink">Manual Básico APS 360</h3>
-                  <p class="mt-2 text-gray-700">
-                    Pra quem quer <strong>não perder ponto por regra invisível</strong>: janela, validação, vínculo e o que pontua.
-                  </p>
-                  <p class="mt-2 text-sm text-gray-600">
-                    Tradução direta do técnico pro operacional (sem mistério).
-                  </p>
+              <div class="p-6 md:p-7">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 class="text-xl md:text-2xl font-extrabold text-ink">Kit Operacional ACS</h3>
+                    <p class="mt-2 text-gray-700">
+                      Pra quem quer <strong>não esquecer nada na visita</strong>.
+                    </p>
+                  </div>
+                  <div class="w-11 h-11 rounded-2xl bg-brand/15 flex items-center justify-center shrink-0">
+                    <i data-lucide="clipboard-check" class="w-6 h-6 text-brand"></i>
+                  </div>
                 </div>
-                <div class="w-12 h-12 rounded-2xl bg-action/15 flex items-center justify-center shrink-0">
-                  <i data-lucide="book-open" class="w-6 h-6 text-action"></i>
+
+                <ul class="mt-4 space-y-2 text-sm text-gray-700">
+                  <li class="flex gap-2">
+                    <i data-lucide="check" class="w-4 h-4 text-brand mt-0.5"></i>
+                    Pronto pra imprimir e levar pro campo
+                  </li>
+                  <li class="flex gap-2">
+                    <i data-lucide="check" class="w-4 h-4 text-brand mt-0.5"></i>
+                    Organiza VD, retornos e metas numa folha
+                  </li>
+                </ul>
+
+                <div class="mt-5">
+                  <a
+                    data-dest="kit"
+                    href="https://leothaylor.github.io/kit-operacional-acs/"
+                    target="_blank" rel="noopener noreferrer"
+                    class="inline-flex w-full justify-center items-center gap-2 bg-kitblue hover:bg-kitblue-hover text-white font-semibold py-3 rounded-2xl transition shadow-softer">
+                    <i data-lucide="external-link" class="w-5 h-5"></i>
+                    Ir direto pro Kit Operacional
+                  </a>
+                </div>
+
+                <div class="mt-3 text-xs text-gray-500">
+                  Dica: se você esquece pergunta, volta na casa ou trava na visita — é aqui.
                 </div>
               </div>
+            </article>
 
-              <ul class="mt-5 space-y-2 text-sm text-gray-700">
-                <li class="flex gap-2">
-                  <i data-lucide="check" class="w-4 h-4 text-action mt-0.5"></i>
-                  Entenda o novo financiamento e a lógica da pontuação
-                </li>
-                <li class="flex gap-2">
-                  <i data-lucide="check" class="w-4 h-4 text-action mt-0.5"></i>
-                  Evita “mês civil”: trabalha com janela e corte de dados
-                </li>
-                <li class="flex gap-2">
-                  <i data-lucide="check" class="w-4 h-4 text-action mt-0.5"></i>
-                  Tradução direta (técnico + simples) para o operacional
-                </li>
-              </ul>
-
-              <div class="mt-6 flex flex-col sm:flex-row gap-3">
-                <a
-                  data-dest="aps360"
-                  href="https://leothaylor.github.io/manual-basico-APS360/"
-                  target="_blank" rel="noopener noreferrer"
-                  class="inline-flex w-full justify-center items-center gap-2 bg-action hover:bg-action-hover text-white font-semibold py-3 rounded-2xl transition shadow-softer">
-                  <i data-lucide="external-link" class="w-5 h-5"></i>
-                  Ir direto pro Manual APS 360
-                </a>
-                <a href="#duvidas"
-                   class="inline-flex w-full justify-center items-center gap-2 bg-white hover:bg-white/70 text-ink font-semibold py-3 rounded-2xl transition shadow-softer border border-black/5">
-                  <i data-lucide="help-circle" class="w-5 h-5"></i>
-                  Ver FAQ
-                </a>
+            <!-- CARD 2 -->
+            <article class="min-w-[86%] sm:min-w-[70%] lg:min-w-0 bg-white rounded-[24px] shadow-soft border border-black/5 overflow-hidden">
+              <div class="bg-gray-50 border-b border-black/5 p-3">
+                <img
+                  src="assets/manual-aps360.jpg"
+                  alt="Foto do Manual Básico APS 360"
+                  class="w-full h-[210px] md:h-[240px] object-cover rounded-2xl border border-black/5"
+                  onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%221200%22 height=%22600%22><rect width=%221200%22 height=%22600%22 fill=%22%23EEF2FF%22/><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%221E3A8A%22 font-size=%2238%22 font-family=%22Arial%22>Coloque aqui a foto do APS 360</text></svg>';"
+                />
               </div>
-            </div>
-          </article>
+
+              <div class="p-6 md:p-7">
+                <div class="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 class="text-xl md:text-2xl font-extrabold text-ink">Manual Básico APS 360</h3>
+                    <p class="mt-2 text-gray-700">
+                      Pra quem quer <strong>não perder ponto por regra invisível</strong>.
+                    </p>
+                  </div>
+                  <div class="w-11 h-11 rounded-2xl bg-action/15 flex items-center justify-center shrink-0">
+                    <i data-lucide="book-open" class="w-6 h-6 text-action"></i>
+                  </div>
+                </div>
+
+                <ul class="mt-4 space-y-2 text-sm text-gray-700">
+                  <li class="flex gap-2">
+                    <i data-lucide="check" class="w-4 h-4 text-action mt-0.5"></i>
+                    Entenda janela, validação, vínculo e o que conta
+                  </li>
+                  <li class="flex gap-2">
+                    <i data-lucide="check" class="w-4 h-4 text-action mt-0.5"></i>
+                    Tradução do técnico pro operacional (sem mistério)
+                  </li>
+                </ul>
+
+                <div class="mt-5">
+                  <a
+                    data-dest="aps360"
+                    href="https://leothaylor.github.io/manual-basico-APS360/"
+                    target="_blank" rel="noopener noreferrer"
+                    class="inline-flex w-full justify-center items-center gap-2 bg-action hover:bg-action-hover text-white font-semibold py-3 rounded-2xl transition shadow-softer">
+                    <i data-lucide="external-link" class="w-5 h-5"></i>
+                    Ir direto pro Manual APS 360
+                  </a>
+                </div>
+
+                <div class="mt-3 text-xs text-gray-500">
+                  Dica: se você trava no “fechamento” e não entende por que não pontuou — é aqui.
+                </div>
+              </div>
+            </article>
+
+          </div>
         </div>
 
-        <!-- MINI FAQ LOGO ABAIXO (entender rapidinho) -->
-        <section id="duvidas" class="pt-10">
-          <div class="bg-white rounded-[28px] shadow-soft border border-black/5 overflow-hidden">
-            <div class="p-7 md:p-10">
+        <!-- MINI FAQ (curto e só o essencial) -->
+        <section id="duvidas" class="pt-8">
+          <div class="bg-white rounded-[24px] shadow-soft border border-black/5 overflow-hidden">
+            <div class="p-6 md:p-7">
               <div class="flex items-start justify-between gap-6">
                 <div>
-                  <h2 class="text-2xl md:text-3xl font-extrabold text-ink tracking-tight">FAQ rápido (30 segundos)</h2>
-                  <p class="mt-2 text-gray-700 max-w-2xl">
+                  <h2 class="text-xl md:text-2xl font-extrabold text-ink tracking-tight">Tô em dúvida (10 segundos)</h2>
+                  <p class="mt-1 text-gray-700">
                     Só pra você não travar na escolha.
                   </p>
                 </div>
-                <div class="hidden md:flex w-12 h-12 rounded-2xl bg-brand/15 items-center justify-center">
+                <div class="hidden md:flex w-11 h-11 rounded-2xl bg-brand/15 items-center justify-center">
                   <i data-lucide="message-circle" class="w-6 h-6 text-brand"></i>
                 </div>
               </div>
 
-              <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="mt-5 grid grid-cols-1 md:grid-cols-2 gap-4">
                 <details class="group rounded-2xl border border-black/5 p-5 bg-gray-50">
                   <summary class="cursor-pointer list-none flex items-center justify-between font-semibold text-ink">
                     Se eu tô perdido no “fechamento”, qual eu pego?
@@ -301,21 +268,8 @@
                     </span>
                   </summary>
                   <p class="mt-3 text-sm text-gray-700">
-                    Se o problema é <strong>organização do dia a dia</strong> (lista, VD, retorno, controle no papel), vai de <strong>Kit</strong>.
-                    Se o problema é <strong>entender regra e prazo</strong> (o que conta, janela, validação), vai de <strong>APS 360</strong>.
-                  </p>
-                </details>
-
-                <details class="group rounded-2xl border border-black/5 p-5 bg-gray-50">
-                  <summary class="cursor-pointer list-none flex items-center justify-between font-semibold text-ink">
-                    Posso usar os dois?
-                    <span class="ml-3 text-gray-500 group-open:rotate-180 transition">
-                      <i data-lucide="chevron-down" class="w-5 h-5"></i>
-                    </span>
-                  </summary>
-                  <p class="mt-3 text-sm text-gray-700">
-                    Sim — e faz sentido: <strong>Manual</strong> organiza a lógica do sistema,
-                    <strong>Kit</strong> organiza a execução no território.
+                    Se o problema é <strong>organização da execução</strong> (VD, retorno, controle no papel), vai de <strong>Kit</strong>.
+                    Se o problema é <strong>regra</strong> (janela, validação, vínculo, o que conta), vai de <strong>APS 360</strong>.
                   </p>
                 </details>
 
@@ -327,26 +281,13 @@
                     </span>
                   </summary>
                   <p class="mt-3 text-sm text-gray-700">
-                    Não. O Kit é um <strong>espelho físico</strong> pra organizar visita, retornos e controle no território.
-                    Você registra no sistema quando estiver disponível — com menos risco de esquecer campo, data e pendência.
-                  </p>
-                </details>
-
-                <details class="group rounded-2xl border border-black/5 p-5 bg-gray-50">
-                  <summary class="cursor-pointer list-none flex items-center justify-between font-semibold text-ink">
-                    O Manual APS 360 é “muito técnico”?
-                    <span class="ml-3 text-gray-500 group-open:rotate-180 transition">
-                      <i data-lucide="chevron-down" class="w-5 h-5"></i>
-                    </span>
-                  </summary>
-                  <p class="mt-3 text-sm text-gray-700">
-                    Ele é técnico onde precisa, e logo em seguida traduz.
-                    Ex.: <strong>janela móvel</strong> (técnico) → “prazo contando pra trás” (simples).
+                    Não. O Kit é <strong>contingência e organização</strong> no território.
+                    Você lança no sistema quando estiver disponível — com menos risco de esquecer.
                   </p>
                 </details>
               </div>
 
-              <div class="mt-8 flex flex-col sm:flex-row gap-3">
+              <div class="mt-6 flex flex-col sm:flex-row gap-3">
                 <a href="#selecionar"
                    class="inline-flex w-full justify-center items-center gap-2 bg-brand hover:bg-brand-dark text-white font-semibold py-3 rounded-2xl transition shadow-softer">
                   <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
@@ -359,6 +300,10 @@
                   Falar no Instagram
                 </a>
               </div>
+
+              <div class="mt-3 text-xs text-gray-500">
+                Se quiser, manda “KIT” ou “APS” no direct e eu te digo qual encaixa na sua rotina.
+              </div>
             </div>
           </div>
         </section>
@@ -367,9 +312,9 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- FOOTER (limpo) -->
   <footer class="border-t border-black/5 bg-white">
-    <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="max-w-6xl mx-auto px-4 py-7 flex flex-col md:flex-row items-center justify-between gap-4">
       <div class="text-sm text-gray-600">
         &copy; <span id="year"></span> ACS Tático. Todos os direitos reservados.
       </div>
@@ -377,9 +322,6 @@
       <div class="flex gap-3">
         <a href="#top" class="text-sm font-semibold text-ink bg-gray-100 hover:bg-gray-200 px-4 py-2 rounded-xl transition">
           Voltar ao topo
-        </a>
-        <a href="#selecionar" class="text-sm font-semibold text-white bg-action hover:bg-action-hover px-4 py-2 rounded-xl transition">
-          Escolher material
         </a>
       </div>
     </div>
