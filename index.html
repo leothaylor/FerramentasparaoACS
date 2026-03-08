@@ -327,35 +327,90 @@
     </div>
   </footer>
 
-  <!-- ✅ SCRIPT: repassa UTM da vitrine para os botões (mantém campaign específica por destino) -->
+  <!-- ✅ SCRIPT: preserva UTMs e parâmetros relevantes da vitrine para as páginas seguintes -->
   <script>
     (function () {
-      const incoming = new URLSearchParams(window.location.search);
+      const NOISE_PARAMS = new Set([
+        "fbclid"
+      ]);
 
-      // remove ruído (não serve pra rastreio no GA/Hotmart e só suja URL)
-      incoming.delete("fbclid");
-
-      // se não veio UTM nenhuma, ainda assim não quebra nada
-      const utm_source  = incoming.get("utm_source")  || "instagram";
-      const utm_medium  = incoming.get("utm_medium")  || "bio";
-      const utm_content = incoming.get("utm_content") || "portal_acs";
-
-      // campanha fixa por destino (pra você separar kit vs aps360 SEM confusão)
-      const campaigns = {
-        kit: "kit_operacional_acs",
-        aps360: "manual_basico_aps360"
+      const FALLBACKS = {
+        utm_source: "instagram",
+        utm_medium: "bio",
+        utm_campaign: "portal_acs",
+        utm_content: "portal_acs"
       };
 
-      document.querySelectorAll("a[data-dest]").forEach(a => {
-        const dest = a.getAttribute("data-dest"); // kit | aps360
-        const url = new URL(a.href);
+      function normalizeValue(value) {
+        return typeof value === "string" ? value.trim() : "";
+      }
 
-        url.searchParams.set("utm_source", utm_source);
-        url.searchParams.set("utm_medium", utm_medium);
-        url.searchParams.set("utm_campaign", campaigns[dest] || "portal_acs");
-        url.searchParams.set("utm_content", `${utm_content}__${dest}`);
+      function hasMeaningfulValue(value) {
+        return normalizeValue(value) !== "";
+      }
 
-        a.href = url.toString();
+      function shouldKeepParam(key, value) {
+        if (!hasMeaningfulValue(value)) return false;
+        if (NOISE_PARAMS.has(key.toLowerCase())) return false;
+        return true;
+      }
+
+      function appendProductToContent(baseContent, productKey) {
+        const cleanBase = normalizeValue(baseContent);
+        const suffix = "portal_" + productKey;
+
+        if (!cleanBase) {
+          return suffix;
+        }
+
+        const normalizedBase = cleanBase.toLowerCase();
+        if (
+          normalizedBase.includes("__" + productKey) ||
+          normalizedBase.includes("portal_" + productKey) ||
+          normalizedBase.includes("produto_" + productKey)
+        ) {
+          return cleanBase;
+        }
+
+        return cleanBase + "__" + productKey;
+      }
+
+      function buildTrackedUrl(baseHref, productKey) {
+        const destinationUrl = new URL(baseHref);
+        const incomingParams = new URLSearchParams(window.location.search);
+
+        const preservedParams = new URLSearchParams();
+
+        for (const [key, value] of incomingParams.entries()) {
+          if (shouldKeepParam(key, value)) {
+            preservedParams.set(key, value);
+          }
+        }
+
+        const finalSource = preservedParams.get("utm_source") || FALLBACKS.utm_source;
+        const finalMedium = preservedParams.get("utm_medium") || FALLBACKS.utm_medium;
+        const finalCampaign = preservedParams.get("utm_campaign") || FALLBACKS.utm_campaign;
+        const baseContent = preservedParams.get("utm_content") || FALLBACKS.utm_content;
+        const finalContent = appendProductToContent(baseContent, productKey);
+
+        preservedParams.set("utm_source", finalSource);
+        preservedParams.set("utm_medium", finalMedium);
+        preservedParams.set("utm_campaign", finalCampaign);
+        preservedParams.set("utm_content", finalContent);
+
+        for (const [key, value] of destinationUrl.searchParams.entries()) {
+          if (!preservedParams.has(key) && shouldKeepParam(key, value)) {
+            preservedParams.set(key, value);
+          }
+        }
+
+        destinationUrl.search = preservedParams.toString();
+        return destinationUrl.toString();
+      }
+
+      document.querySelectorAll("a[data-dest]").forEach(function (anchor) {
+        const productKey = anchor.getAttribute("data-dest");
+        anchor.href = buildTrackedUrl(anchor.href, productKey);
       });
     })();
   </script>
